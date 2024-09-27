@@ -1,0 +1,4 @@
+# Files to ignore
+for_curl_requests.txt
+# Folders to ignore
+node_modules/
