@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <title>your todo list</title>
+  </head>
+  <body>
+    <div class="container-general">
+    <div class="container-main">
+        <h1>TO DO LIST</h1>
+        <div class="separating-line"></div>
+        <form action="/todos" method="POST" id="form-post">
+            <input type="text" id="title" name="title" placeholder="title" />
+            <textarea name="description" id="description" placeholder="description"></textarea>            
+            <button type="submit">ADD</button>
+        </form>
+      </div>
+    <% todos.forEach((todo) => { %>
+    <div class="todo-card">
+      <div class="card-heading">
+      <h2>YOUR TO DO</h2>
+      <div class="separating-line"></div>
+      </div>
+      <div class="card-main">
+      <form action="/todos/update/<%= todo._id %>?_method=PUT" method="POST">
+        <input type="text" value="<%= todo.title %>" name="saved-todo" id="saved-todo" />
+        <textarea name="saved-description" id="saved-description"><%= todo.description %></textarea>
+        <div class="card-controls">
+        <label class="container-checkbox">
+        
+        <input type="checkbox" name="completed" class="completed" <%= todo.completed ? 'checked' : '' %> />
+        <span class="checkmark"></span>
+        </label>
+        <button class="update" type="submit">UPDATE</button>
+      </form>  
+
+     <form action="/todos/delete/<%= todo._id %>?_method=DELETE" method="POST">
+        <button class="delete">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#9B6BFF"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg>
+        </button>
+     </form>
+     </div>
+      </div>
+    </div>
+    <% }) %>
+
+    <!-- EJS code -->
+    <!-- <% todos.forEach((todo) => { %>
+     <div class="todo-card">
+      <form action="/todos/update/<%= todo._id %>?_method="PUT"" method="POST">
+        <input type="text" value="<%= todo.title %>" name="saved-todo" id="saved-todo" />
+        <textarea name="saved-description" id="saved-description"><%= todo.description %></textarea>
+        <label class="container-checkbox">
+        <input type="checkbox" name="completed" id="completed" <%= todo.completed ? "checked" : ""  %> />
+        <span class="checkmark"></span>
+        </label>
+        <button type="submit">UPDATE</button>
+      </form>  
+
+     <form action="/todos/delete/<%= todo._id %>?_method="delete" ?? method="POST">
+        <button class="delete">
+            <img class="icon-delete" src="..." />
+        </button>
+     </form>   
+     </div>
+    <% }); %>--> 
+    </div>
+  </body>
+</html>

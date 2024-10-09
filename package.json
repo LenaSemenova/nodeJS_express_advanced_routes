@@ -11,7 +11,10 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
+    "cors": "^2.8.5",
+    "ejs": "^3.1.10",
     "express": "^4.21.0",
+    "method-override": "^3.0.0",
     "mongoose": "^8.6.3"
   }
 }

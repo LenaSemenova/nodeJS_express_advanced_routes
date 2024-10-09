@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+
+body {
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+}
+.container-general {
+    grid-column: 2;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.container-main {
+    margin-bottom: 20px;
+    width: 80%;
+    height: 40%;
+    justify-self: center;
+    
+    border-radius: 25px;
+    background: linear-gradient(rgba(83, 2, 255, 0.5),rgba(255, 1, 62, 0.5));
+    color: white;
+    font-family: 'Inter';
+    font-weight: 700;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    box-shadow: 0 4px 8px 0 rgba(119, 118, 118, 0.4), 0 6px 20px 0 rgba(119, 118, 118, 0.2);
+    transition: 0.3s;
+}
+.container-main:hover {
+    box-shadow: 0 4px 8px 0 rgba(119, 118, 118, 0.6), 0 6px 20px 0 rgba(119, 118, 118, 0.4);  
+}
+h1 {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    padding-top: 8px;
+}
+div.separating-line {
+    height: 3px;
+    background: white;
+    width: 90%;
+}
+form {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+input {
+    border: 1px solid #777676;
+    border-radius: 10px;
+    
+    padding: 8px;
+    width: 80%;
+    font-family: 'Inter';
+    font-weight: 300;
+    color: #777676;
+}
+input:focus {
+    border: none;
+    outline: 3px dotted #777676;
+}
+input#title:focus {
+    border: none;
+    outline: 3px solid #ffffff;
+}
+textarea {
+    border: 1px solid #777676;
+    border-radius: 10px;
+    padding: 8px;
+    width: 80%;
+    font-family: 'Inter';
+    font-weight: 300;
+    color: #777676;
+    resize: none;
+}
+
+textarea:focus {
+    border: none;
+    outline: 3px dotted #777676;
+}
+textarea#description:focus {
+    border: none;
+    outline: 3px solid #ffffff;
+}
+button {
+    width: 30%;
+    height: 34px;
+    background: white;
+    color: #9B6BFF;
+    font-family: 'Inter';
+    font-weight: 500;
+    border: 1px solid #9B6BFF;
+    border-radius: 10px;
+    padding: 5px 14px 5px 14px;
+    transition: 0.5s;
+}
+button:hover {
+    background: #9B6BFF;
+    color: white;
+    border: 1px solid white;
+}
+.todo-card {
+    
+    border-radius: 25px;
+    width: 40%;
+    height: 52%;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px 0 rgba(119, 118, 118, 0.2), 0 6px 20px 0 rgba(119, 118, 118, 0.1);
+    transition: 0.3s;
+}
+.todo-card:hover {
+    box-shadow: 0 4px 8px 0 rgba(119, 118, 118, 0.4), 0 6px 20px 0 rgba(119, 118, 118, 0.2);
+}
+.card-heading {
+    background: linear-gradient(rgba(83, 2, 255, 0.5),rgba(255, 1, 62, 0.5));
+    border-radius: 25px 25px 0px 0px;
+    text-align: center;
+    width: 100%;
+    height: 25%;
+    color: white;
+    font-family: 'Inter';
+    font-weight: 700;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+h2 {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    padding-top: 8px;
+}
+.card-main {
+    height: 75%;
+    padding: 16px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    
+}
+.card-main input {
+    height: 10%;
+    text-transform: lowercase;
+}
+.card-main textarea {
+    height: 20%;
+    text-transform: lowercase;
+}
+.card-controls {
+    width: 100%;
+    height: 20%;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.delete {
+    padding: 0px;
+    height: 34px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+svg {
+    transition: 0.5s;
+}
+.delete:hover svg {
+    fill: #FFFFFF;
+}
+
+.update {
+    height: 34px;
+    width: 115px;
+}
+.icon-delete {
+    height: 30px;
+    width: 30px;
+}
+.container-checkbox {
+    height: 36px;
+    display: block;
+    position: relative;
+    top: 4px;
+    left: -6px;
+    cursor: pointer;
+}
+input.completed {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 26px;
+    width: 26px;
+    background-color: white;
+    border: 1px solid #777676;
+    border-radius: 6px;
+    transition: 0.5s;
+}
+.container-checkbox:hover input.completed ~ .checkmark {
+    background-color: #9B6BFF;
+}
+.container-checkbox input.completed:checked ~ .checkmark {
+    background-color: #9B6BFF;
+}
+
+.checkmark::after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+.container-checkbox input.completed:checked ~ .checkmark::after {
+    display: block;
+}
+.container-checkbox .checkmark::after {
+    left: 7px;
+    top: 0;
+    width: 8px;
+    height: 16px;
+    border: solid white;
+    border-width: 0 4px 4px 0;
+    transform: rotate(40deg);
+
+}
+@media only screen and (max-width: 800px) {
+    .container-main {
+        height: 30%;
+    }
+    .todo-card {
+        width: 80%;
+        height: 36%;
+    }
+}

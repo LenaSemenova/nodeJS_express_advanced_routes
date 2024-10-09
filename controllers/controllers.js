@@ -6,8 +6,8 @@ const getTodos = async(req, res) => {
     try  {
         const todos = await advancedTodosModel.find();
         console.log(todos);
-        res.status(200).json({messageGet: "It's okay", "yourTodos": todos});
-        //res.render('index', { todos })
+        //res.status(200).json({messageGet: "It's okay", "yourTodos": todos});
+        res.render('index', { todos })
     } catch(err) {
         res.status(500).send(err);
     }
@@ -40,21 +40,28 @@ const createTodos = async(req, res) => {
 const updateTodos = async(req, res) => {
 
     const { id } = req.params;
-    const { title, description, completed } = req.body;
+    //const { title, description, completed } = req.body;
+    const updatedTitle = req.body['saved-todo'];
+    const updatedDescription = req.body['saved-description'];
+    const updatedCompleted = req.body['completed'];
     
 
     console.log("id:" + id);
-    console.log("document " + title, description, completed);
+    console.log("document " + updatedTitle, updatedDescription, updatedCompleted);
 
     let update = {};
 
-    if (title !== undefined) {
-        update.title = title;
+    if (updatedTitle!== undefined) {
+        update.title = updatedTitle;
     }
-    if (description !== undefined) {
-        update.description = description;
+    if (updatedDescription !== undefined) {
+        update.description = updatedDescription;
     }
-    update.completed = completed;
+    if (updatedCompleted === 'on') {
+        update.completed = true;
+    } else {
+        update.completed = false;
+    }
 
     
     console.log(update);
