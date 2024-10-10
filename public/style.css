@@ -3,7 +3,7 @@
 
 body {
     display: grid;
-    grid-template-columns: 20% 60% 20%;
+    grid-template-columns: 5% 90% 5%;
 }
 .container-general {
     grid-column: 2;
@@ -15,8 +15,8 @@ body {
 
 .container-main {
     margin-bottom: 20px;
-    width: 80%;
-    height: 40%;
+    width: 98%;
+    height: 30%;
     justify-self: center;
     
     border-radius: 25px;
@@ -108,8 +108,8 @@ button:hover {
 .todo-card {
     
     border-radius: 25px;
-    width: 40%;
-    height: 52%;
+    width: 90%;
+    height: 36%;
     margin-bottom: 20px;
     box-shadow: 0 4px 8px 0 rgba(119, 118, 118, 0.2), 0 6px 20px 0 rgba(119, 118, 118, 0.1);
     transition: 0.3s;
@@ -178,7 +178,8 @@ svg {
 
 .update {
     height: 34px;
-    width: 115px;
+    width: 86px;
+    margin-left: 16px;
 }
 .icon-delete {
     height: 30px;
@@ -235,12 +236,42 @@ input.completed {
     transform: rotate(40deg);
 
 }
-@media only screen and (max-width: 800px) {
+@media only screen and (min-width: 600px) {
+    .todo-card {
+        width: 45%;
+        height: 52%;
+    }
+    .update {
+        width: 86px;
+        margin-left: 16px;
+    }
+}
+@media only screen and (min-width: 820px) {
+    body {
+        grid-template-columns: 20% 60% 20%;
+    }
+}
+@media only screen and (min-width: 1280px) {
+    body {
+        grid-template-columns: 20% 60% 20%;
+    }
     .container-main {
-        height: 30%;
+        height: 40%;
     }
     .todo-card {
-        width: 80%;
-        height: 36%;
+        width: 40%;
+        height: 52%;
+    }
+}
+@media only screen and (min-width: 1920px) {
+    body {
+        grid-template-columns: 20% 60% 20%;
+    }
+    .container-main {
+        height: 40%;
+    }
+    .todo-card {
+        width: 30%;
+        height: 52%;
     }
 }
