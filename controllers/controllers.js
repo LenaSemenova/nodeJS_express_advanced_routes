@@ -1,4 +1,5 @@
 import advancedTodosModel from "../db_model/db_model_mongoose.js";
+import { validationResult } from "express-validator";
 
 //GET DATA
 
@@ -16,6 +17,13 @@ const getTodos = async(req, res) => {
 // CREATE DOCUMENTS
 
 const createTodos = async(req, res) => {
+
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        const todos = await advancedTodosModel.find();
+        const errArr = errors.array();
+        return res.status(400).render('index', { todos, errArr });
+    }
     
     const { title, description } = req.body;
     const newTodo = new advancedTodosModel({
@@ -38,6 +46,13 @@ const createTodos = async(req, res) => {
 //UPDATE DOCUMENTS
 
 const updateTodos = async(req, res) => {
+
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        const todos = await advancedTodosModel.find();
+        const errArr = errors.array();
+        return res.status(400).render('index', { todos, errArr });
+    }
 
     const { id } = req.params;
     //const { title, description, completed } = req.body;
