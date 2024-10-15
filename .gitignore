@@ -1,4 +1,5 @@
 # Files to ignore
 for_curl_requests.txt
+your_todo_list_with_validation.gif
 # Folders to ignore
 node_modules/
