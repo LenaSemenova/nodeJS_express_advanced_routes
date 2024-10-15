@@ -6,17 +6,23 @@ import cors from "cors";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
 
+import dotenv from "dotenv";
+dotenv.config();
+
 import router from "./routes/routes.js"
 
 
 const app = express();
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
+//const PORT = 3000;
+const mongoUri = process.env.MONGODB_URI;
 
-mongoose.connect('mongodb://localhost:27017/advanced-todos').then(() => {
+mongoose.connect(mongoUri).then(() => {
     console.log('Connected to MongoDB Advanced Todos!');
 }).catch((err) => {
     console.error('Error while connecting to MongoDB' + err);
+    process.exit(1);
 })
 app.set('view engine', 'ejs');
 
