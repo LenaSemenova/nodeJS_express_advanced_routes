@@ -2,7 +2,7 @@ import express from "express";
 import { json, urlencoded } from "express";
 import mongoose from "mongoose";
 import methodOverride from "method-override";
-import cors from "cors";
+//import cors from "cors";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
 
@@ -26,7 +26,7 @@ mongoose.connect(mongoUri).then(() => {
 })
 app.set('view engine', 'ejs');
 
-app.use(cors());
+//app.use(cors());
 
 app.use(json());
 app.use(urlencoded({ extended: true }));
