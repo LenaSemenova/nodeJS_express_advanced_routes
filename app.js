@@ -42,8 +42,7 @@ app.use('/todos', router);
 
 app.get('/', async (req, res) => {
      await handler();
-     res.status(200).json({"messageSuccess": "It's alright!"});
-    //res.redirect('/todos');
+     res.redirect('/todos');
 })
 
 app.listen(PORT, () => {
