@@ -14,6 +14,6 @@ const advancedTodosSchema = new mongoose.Schema({
     }
 })
 
-const advancedTodosModel = mongoose.model('AdvancedTodo', advancedTodosSchema);
+const advancedTodosModel = mongoose.model('Todo', advancedTodosSchema);
 
 export default advancedTodosModel;
