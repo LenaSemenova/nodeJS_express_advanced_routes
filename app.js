@@ -19,12 +19,23 @@ const PORT = process.env.PORT || 3000;
 //const PORT = 3000;
 const mongoUri = process.env.MONGODB_URI;
 
-mongoose.connect(mongoUri).then(() => {
+const connectDB = async() => {
+    try {
+        await mongoose.connect(mongoUri);
+        console.log('Successfully connected to DB!');
+    } catch(err) {
+        console.error('Error while connecting to MongoDB' + err);
+        process.exit(1);
+    }
+}
+connectDB();
+/*mongoose.connect(mongoUri).then(() => {
     console.log('Connected to MongoDB Advanced Todos!');
 }).catch((err) => {
     console.error('Error while connecting to MongoDB' + err);
     process.exit(1);
 })
+*/
 app.set('view engine', 'ejs');
 
 //app.use(cors());

@@ -1,20 +1,11 @@
 import advancedTodosModel from "../db_model/db_model_mongoose.js";
 import { validationResult } from "express-validator";
-import mongoose from "mongoose";
-
 
 
 //GET DATA
 
 const getTodos = async(req, res) => {
-    //added the db connection
-    mongoose.connect('mongodb+srv://lenzwergy:T3y1Z50V1XHJFrKu@todo-list.6rikz.mongodb.net/todo-list?retryWrites=true&w=majority&appName=todo-list').then(() => {
-        console.log('Connected to MongoDB Advanced Todos!');
-    }).catch((err) => {
-        console.error('Error while connecting to MongoDB' + err);
-        process.exit(1);
-    })
-    //added the db connection
+    
     try  {
         const todos = await advancedTodosModel.find();
         console.log(todos);
