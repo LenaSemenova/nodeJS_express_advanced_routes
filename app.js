@@ -5,6 +5,7 @@ import methodOverride from "method-override";
 //import cors from "cors";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
+import handler from "./for_check.js";
 
 import dotenv from "dotenv";
 dotenv.config();
@@ -39,8 +40,10 @@ app.use(methodOverride('_method'));
 
 app.use('/todos', router);
 
-app.get('/', (req, res) => {
-    res.redirect('/todos');
+app.get('/', async (req, res) => {
+     await handler();
+     res.status(200).json({"messageSuccess": "It's alright!"});
+    //res.redirect('/todos');
 })
 
 app.listen(PORT, () => {
